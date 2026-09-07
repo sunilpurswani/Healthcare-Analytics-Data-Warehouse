@@ -1,0 +1,7 @@
+.env
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.log
+.DS_Store
