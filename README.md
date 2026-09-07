@@ -31,6 +31,8 @@ The MySQL implementation in this repository includes:
 - `Carrier_Claims`
 - `Prescription_Drugs`
 
+See [`docs/schema.md`](./docs/schema.md) for the warehouse relationship diagram and table details.
+
 ## Data Preparation
 
 The source files were processed in R before loading into MySQL. The preparation workflow included:
@@ -99,6 +101,8 @@ Healthcare-Analytics-Data-Warehouse/
 ├── README.md
 ├── .env.example
 ├── .gitignore
+├── docs/
+│   └── schema.md
 ├── sql/
 │   └── healthcare_data_warehouse.sql
 ├── r/
@@ -114,11 +118,11 @@ Healthcare-Analytics-Data-Warehouse/
 
 1. Create the MySQL database and tables using `sql/healthcare_data_warehouse.sql`.
 2. Load the cleaned CMS synthetic claims files into the corresponding tables.
-3. Create a local `.env` file using `.env.example` as a template.
+3. Copy `.env.example` to `.env` and add the local MySQL credentials.
 4. Install the required R packages:
 
 ```r
-install.packages(c("shiny", "DBI", "RMySQL", "ggplot2", "DT"))
+install.packages(c("shiny", "DBI", "RMySQL", "ggplot2", "DT", "dotenv"))
 ```
 
 5. Run the dashboard:
@@ -129,7 +133,7 @@ shiny::runApp("r/healthcare_dashboard.R")
 
 ## Data Note
 
-The original CMS synthetic claims datasets are not included because of their size. The repository includes the SQL analysis outputs used to demonstrate the project results.
+The original CMS synthetic claims datasets are not included because of their size. The repository includes SQL analysis outputs used to demonstrate the project results.
 
 ## Author
 
